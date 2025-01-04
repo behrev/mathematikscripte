@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Lineare Gleichungssysteme mit zwei Variablen</TITLE>
+<SCRIPT  LANGUAGE="JavaScript"><!--
+     function berechne(form)
+       {
+         var A1 = form.A1.value, B1 = form.B1.value, C1 = form.C1.value,
+             A2 = form.A2.value, B2 = form.B2.value, C2 = form.C2.value;
+
+         Det  = A1 * B2 - A2 * B1;      // Nennerdeterminante berechnen
+         Detx = B2 * C1 - B1 * C2;      // Zählerdeterminante für x berechnen
+         Dety = A1 * C2 - A2 * C1;      // Zählerdeterminante für y berechnen
+         if (Det != 0)                  // Nennerdeterminante ist ungleich Null?
+           {
+             form.x.value = Detx / Det;
+             form.y.value = Dety / Det;
+
+           }
+         else if (Detx != 0)            // Nennerdeterminante ist Null und
+           {                            // Zählerdeterminante ist ungleich Null
+             form.x.value = "";
+             form.y.value = "keine Lösung";
+
+           }
+         else                           // Zähler- und Nennerdeterminante sind Null
+           {
+             form.x.value = "";
+             form.y.value = "keine Lösung";
+
+           }
+        }
+  //  --></SCRIPT>
+</HEAD>
+<BODY background="karo.gif" BGCOLOR=#ff8800 >
+
+  <h3>Gleichungssystem n=2 l&ouml;sen:</h3>
+  (F&uuml;r Kommas Dezimalpunkt eingeben)<br>
+<BR>
+  <FORM ACTION="" METHOD=POST>
+
+    <INPUT TYPE=text NAME=A1 VALUE="" SIZE=3>
+    x &nbsp;&nbsp; + &nbsp;
+    <INPUT TYPE=text NAME=B1 VALUE="" SIZE=3>
+    y &nbsp; =
+    <INPUT TYPE=text NAME=C1 VALUE="" SIZE=3>
+    <BR>
+
+    <INPUT TYPE=text NAME=A2 VALUE="" SIZE=3>
+    x &nbsp;&nbsp; + &nbsp;
+    <INPUT TYPE=text NAME=B2 VALUE="" SIZE=3>
+    y &nbsp; =
+    <INPUT TYPE=text NAME=C2 VALUE="" SIZE=3>
+    <BR>
+    <BR>
+    <INPUT TYPE=button NAME=rechnen VALUE="ausrechnen" onclick="berechne(this.form);">
+
+    <P> x =
+      <INPUT TYPE=text NAME=x VALUE="" SIZE=18 onfocus="this.blur();">
+      
+      <BR>
+      y =
+      <INPUT TYPE=text NAME=y VALUE="" SIZE=18 onfocus="this.blur();">
+      <BR>
+VB 2004
+
+  </FORM>
+
+
+
+</BODY>
+</HTML>

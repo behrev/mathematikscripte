@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>Determinante mit n=4 l&ouml;sen</title>
+<meta name="generator" content="Namo WebEditor v3.0">
+<SCRIPT  LANGUAGE="JavaScript"><!--
+     function berechne(form)
+       {
+// Variablendeklaration
+         var A1 = form.A1.value, B1 = form.B1.value, C1 = form.C1.value, D1 = form.D1.value,
+             A2 = form.A2.value, B2 = form.B2.value, C2 = form.C2.value, D2 = form.D2.value,
+             A3 = form.A3.value, B3 = form.B3.value, C3 = form.C3.value, D3 = form.D3.value,
+	    A4 = form.A4.value, B4 = form.B4.value, C4 = form.C4.value, D4 = form.D4.value;
+
+// Unterdeterminanten berechnen
+
+	 Detu1 = +(B2) * (C3*D4-D3*C4) -(C2) * (B3*D4-D3*B4) +(D2) * (B3*C4-C3*B4);
+
+	 Detu2 = +(A2) * (C3*D4-D3*C4) -(C2) * (A3*D4-D3*A4) +(D2) * (A3*C4-C3*A4);
+
+	 Detu3 = +(A2) * (B3*D4-D3*B4) -(B2) * (A3*D4-D3*A4) +(D2) * (A3*B4-B3*A4);
+
+	 Detu4 = +(A2) * (B3*C4-C3*B4) -(B2) * (A3*C4-C3*A4) +(C2) * (A3*B4-B3*A4);
+
+
+// Determinante der Matrix berechnen
+
+         Det  = +(A1)*(Detu1) -(B1)*(Detu2) +(C1)*(Detu3) -(D1)*(Detu4);
+
+         Detx = (D1 * B2 * C3)+(B1 * C2 * D3)+(C1 * D2 * B3)-(D3 * B2 * C1)-(B3 * C2 * D1)-(C3 * D2 * B1);                // Zählerdeterminante für x berechnen
+
+         Dety = (A1 * D2 * C3)+(D1 * C2 * A3)+(C1 * A2 * D3)-(A3 * D2 * C1)-(D3 * C2 * A1)-(C3 * A2 * D1);                // Zählerdeterminante für y berechnen
+
+         Detz = (A1 * B2 * D3)+(B1 * D2 * A3)+(D1 * A2 * B3)-(A3 * B2 * D1)-(B3 * D2 * A1)-(D3 * A2 * B1);                // Zählerdeterminante für z berechnen
+
+          form.loesungen.value =  Det
+
+        }
+  //  --></SCRIPT></head>
+
+<body background="karo.gif" bgcolor="#FF8800" text="black" link="blue" vlink="purple"
+ alink="red">
+
+<h3>Determinante mit n=4 l&ouml;sen:</h3>
+<p>(F&uuml;r Kommas Dezimalpunkt eingeben)<br> </p>
+<form method="post">
+<!--Eingabeformular erzeugen-->
+<p><input type="text" name="A1" size="3">  <input type="text"
+ name="B1" size="3">  <input type="text" name="C1" size="3">
+ <input type="text" name="D1" size="3">  <br> <input
+ type="text" name="A2" size="3"> <input type="text"
+ name="B2" size="3">  <input type="text" name="C2" size="3">
+ <input type="text" name="D2" size="3">  <br> <input
+ type="text" name="A3" size="3">  <input type="text"
+ name="B3" size="3"> <input type="text" name="C3" size="3">
+ <input type="text" name="D3" size="3">  <br> <input
+ type="text" name="A4" size="3">  <input type="text"
+ name="B4" size="3">  <input type="text" name="C4" size="3">
+ <input type="text" name="D4" size="3">  <br> <!--Buton zum ausrechnen-->
+<input type="button" name="rechnen" value="ausrechnen" onclick="berechne(this.form);">
+<!--Ergebnisfeld für die Matrixdeterminante--></p>
+<p><b>Determinante der Matrix = </b><input type="text" name="loesungen" size="15"
+ onfocus="this.blur();"> &nbsp; </p>
+
+VB 2004 </p></form>
+
+</body>
+
+</html>

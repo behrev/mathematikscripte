@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>Quadratische Gleichung mit der abc-Formel l&ouml;sen</TITLE>
+<SCRIPT  LANGUAGE="JavaScript"><!--
+
+
+function berechne(form)
+       {
+         var A = form.A.value, B = form.B.value, C = form.C.value;
+         if ((A == 0) && (B == 0))            // bei a=0, b=0 und c<>0 keine Loesung
+           {
+             form.X1.value = "Nicht lösbar !";
+             form.X2.value = "Eingaben kontrollieren";
+             x = 0;
+	     y = 0;
+	     form.spx.value = "";
+	     form.spy.value = "";
+           }
+         else if (A == 0)                     // bei a=0 lineare Gleichung, eine Loesung
+           {
+             form.X1.value = -C/B;
+             form.X2.value = "Lineare Gleichung";
+
+           }
+         else if ((B*B-4*A*C)/(2*A) < 0)      // keine Loesung falls Diskriminante < 0
+           {
+             form.X1.value = "keine Lösung";
+             form.X2.value = "Diskiminante < 0";
+             x = -B/(2*A);
+	     y = C-((B*B)/(4*A));
+	     form.spx.value = x;
+	     form.spy.value = y;
+           }
+         else if ((B*B-4*A*C)/(2*A) == 0)      // eine Loesung falls Diskriminante = 0
+           {
+             X1 = -B/(2*A);
+	     form.X1.value = X1;
+             form.X2.value = "Doppelte Nullstelle";
+             x = -B/(2*A);
+	     y = C-((B*B)/(4*A));
+	     form.spx.value = x;
+	     form.spy.value = y;
+           }
+         else                                 // sonst zwei Loesungen
+           {
+             X1 = -B/(2*A)+Math.sqrt(B*B-4*A*C)/(2*A);
+             X2 = -B/(2*A)-Math.sqrt(B*B-4*A*C)/(2*A);
+             form.X1.value = X1;
+             form.X2.value = X2;
+	     x = -B/(2*A);
+	     y = C-((B*B)/(4*A));
+	     form.spx.value = x;
+	     form.spy.value = y;
+
+           }
+
+	form.spf.value = "f (x) = " + A + " (x -  (" + x + ")) ^2 " + " +  (" + y + ")";
+       }
+  //  --></SCRIPT>
+</HEAD>
+<BODY background="karo.gif"BGCOLOR=#0066cc >
+
+  <FORM ACTION="" METHOD=POST>
+
+	<H3>Koeffizienten a, b, c eingeben .</H3>
+<BR><b>
+
+
+    <INPUT TYPE=text NAME=A VALUE="1" SIZE=3 >
+    x <SUP>2</SUP>  +
+
+    <INPUT TYPE=text NAME=B VALUE="0" SIZE=3>
+    x  +
+
+    <INPUT TYPE=text NAME=C VALUE="0" SIZE=3>
+    =0
+</b>
+<BR>
+<BR>
+
+
+
+ <INPUT TYPE=button NAME=rechnen VALUE="L&ouml;sen" onclick="berechne(this.form);">
+
+    <BR>
+    <BR>
+	Nullst. " x2 " =
+      <INPUT TYPE=text NAME=X1 VALUE="" SIZE=25 onfocus="this.blur();">
+     <br>
+      	Nullst. " x1 " =
+      <INPUT TYPE=text NAME=X2 VALUE="" SIZE=25 onfocus="this.blur();">
+      <BR>
+
+      	Scheitelpunkt x  =
+      <INPUT TYPE=text NAME=spx VALUE="" SIZE=25 onfocus="this.blur();">
+      <BR>
+	Scheitelpunkt y  =
+      <INPUT TYPE=text NAME=spy VALUE="" SIZE=25 onfocus="this.blur();">
+      <BR>
+
+      Funktion in Scheitelpunktform <BR>
+      <INPUT TYPE=text NAME=spf VALUE="" SIZE=30 onfocus="this.blur();">
+      <BR>
+
+VB 2004
+  </FORM>
+
+
+</BODY>
+</HTML>

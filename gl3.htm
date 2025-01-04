@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>Lineare Gleichungssysteme mit drei Variablen l&ouml;sen</TITLE>
+<SCRIPT  LANGUAGE="JavaScript"><!--
+     function berechne(form)
+       {
+// Variablendeklaration
+         var A1 = form.A1.value, B1 = form.B1.value, C1 = form.C1.value, D1 = form.D1.value,
+             A2 = form.A2.value, B2 = form.B2.value, C2 = form.C2.value, D2 = form.D2.value,
+             A3 = form.A3.value, B3 = form.B3.value, C3 = form.C3.value, D3 = form.D3.value;
+
+// Determinante der Matrix berechnen
+
+         Det  = (A1 * B2 * C3)+(B1 * C2 * A3)+(C1 * A2 * B3)-(A3 * B2 * C1)-(B3 * C2 * A1)-(C3 * A2 * B1);
+
+         Detx = (D1 * B2 * C3)+(B1 * C2 * D3)+(C1 * D2 * B3)-(D3 * B2 * C1)-(B3 * C2 * D1)-(C3 * D2 * B1);                // Zählerdeterminante für x berechnen
+
+         Dety = (A1 * D2 * C3)+(D1 * C2 * A3)+(C1 * A2 * D3)-(A3 * D2 * C1)-(D3 * C2 * A1)-(C3 * A2 * D1);             // Zählerdeterminante für y berechnen
+
+         Detz = (A1 * B2 * D3)+(B1 * D2 * A3)+(D1 * A2 * B3)-(A3 * B2 * D1)-(B3 * D2 * A1)-(D3 * A2 * B1);                // Zählerdeterminante für z berechnen
+
+
+         if (Det != 0)                  // Nennerdeterminante ist ungleich Null?
+           {
+             form.x.value = Detx / Det;
+             form.y.value = Dety / Det;
+             form.z.value = Detz / Det;
+             form.loesungen.value =  Det
+
+           }
+         else if (Detx != 0)            // Nennerdeterminante ist Null und
+           {                            // Zählerdeterminante ist ungleich Null
+             form.x.value = "";
+             form.y.value = "";
+             form.z.value = "keine Lösung";
+             form.loesungen.value =  Det
+           }
+         else                           // Zähler- und Nennerdeterminante sind Null
+           {
+             form.x.value = "";
+             form.y.value = "";
+             form.z.value = "keine Lösung";
+             form.loesungen.value =  Det;
+           }
+        }
+  //  --></SCRIPT>
+</HEAD>
+<BODY background="karo.gif" BGCOLOR=#ff8800 >
+
+  <h3>Gleichungssystem n=3 l&ouml;sen:</h3>
+  (F&uuml;r Kommas Dezimalpunkt eingeben)<br>
+  <FORM ACTION="" METHOD=POST>
+
+    <INPUT TYPE=text NAME=A1 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=B1 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=C1 VALUE="" SIZE=3>
+=
+    <INPUT TYPE=text NAME=D1 VALUE="" SIZE=3>
+    <BR>
+
+     <INPUT TYPE=text NAME=A2 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=B2 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=C2 VALUE="" SIZE=3>
+=
+    <INPUT TYPE=text NAME=D2 VALUE="" SIZE=3>
+    <BR>
+
+    <INPUT TYPE=text NAME=A3 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=B3 VALUE="" SIZE=3>
+
+    <INPUT TYPE=text NAME=C3 VALUE="" SIZE=3>
+=
+    <INPUT TYPE=text NAME=D3 VALUE="" SIZE=3>
+    <BR>
+
+
+
+<!--Buton zum ausrechnen-->
+   <INPUT TYPE=button NAME=rechnen VALUE="ausrechnen" onclick="berechne(this.form);">
+
+<!--Ergebnisfeld für die Matrixdeterminante-->
+   <P> <B>Determinante der Matrix = </B>
+       <INPUT TYPE=text NAME=loesungen VALUE="" SIZE=15 onfocus="this.blur();">
+      &nbsp;
+      <P>
+
+<!--Ergebnisfeld für den Wert x-->
+        x =
+      <INPUT TYPE=text NAME=x VALUE="" SIZE=18 onfocus="this.blur();">
+      <BR>
+      <BR>
+
+<!--Ergebnisfeld für den Wert y-->
+              y =
+      <INPUT TYPE=text NAME=y VALUE="" SIZE=18 onfocus="this.blur();">
+      <BR>
+      <BR>
+<!--Ergebnisfeld für den Wert z-->
+        z =
+      <INPUT TYPE=text NAME=z VALUE="" SIZE=18 onfocus="this.blur();">
+      <BR>
+
+VB 2004
+
+    <P>
+  </FORM>
+
+
+
+
+</BODY>
+</HTML>
