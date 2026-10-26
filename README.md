@@ -1,6 +1,6 @@
-# Mathscripte für Smartphone (ursprünglich für Pocket PC)
+# Mathescripte für Smartphone (ursprünglich für Pocket PC)
 
-Willkommen bei den **Mathscripte**, einer Sammlung von JavaScript-basierten Werkzeugen zur mathematischen Berechnung, die speziell für die Anzeige auf Pocket PCs optimiert wurden. Diese Tools sind ideal für Studierende der Elektrotechnik geeignet, um schnell Gleichungssysteme zu lösen oder Determinanten zu berechnen.
+Willkommen bei den **Mathescripte**, einer Sammlung von JavaScript-basierten Werkzeugen zur mathematischen Berechnung, die speziell für die Anzeige auf Pocket PCs optimiert wurden. Diese Tools sind ideal für Studierende der Elektrotechnik geeignet, um schnell Gleichungssysteme zu lösen oder Determinanten zu berechnen.
 
 ## 🚀 Features
 Die Seite bietet verschiedene mathematische Funktionen direkt im Browser an:
